@@ -1,0 +1,22 @@
+<div class="container {{resultClass}}">
+    <div class="logo flexColumnCenter">
+        <img src="assets/imgs/logo.png" alt="BuzzFeed">
+        <h3>{{title}}</h3>
+    </div>
+    <div *ngIf=!finished   class="questions flexColumnCenter">
+        <h3>{{questionSelected.question}}</h3>
+    </div>
+    <div *ngIf=!finished  class="options">
+        <button
+
+        *ngFor="let option of questionSelected.options"
+        (click)="playerChoice(option.alias)"
+        > {{option.name}} 
+    </button>
+    </div>
+    <div *ngIf=finished class="results flexColumnCenter {{resultClass}}">
+        <h1>O seu resultado é:</h1>
+        <p>{{result}}</p>
+        <button class="{{resultClass}}" (click)="reload()" >Jogar Novamente</button>
+    </div>
+</div>
